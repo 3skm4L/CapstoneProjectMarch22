@@ -1,6 +1,9 @@
 import html from "html-literal";
 
-export default () => html`
+const kelvinToFahrenheit = kelvinTemp =>
+  Math.round((kelvinTemp - 273.15) * (9 / 5) + 32);
+
+export default st => html`
   <section id="home">
     <h2>Enter a US location to explore its weather factors:</h2>
     <form class="form">
@@ -12,7 +15,13 @@ export default () => html`
         <option value="AL">Alabama</option>
       </select>
     </form>
+    <h3>
+      Weather in ${st.weather.city} ${kelvinToFahrenheit(st.weather.temp)}F,
+      feels like ${kelvinToFahrenheit(st.weather.feelsLike)}F, humidity is
+      ${st.weather.humidity}
+    </h3>
   </section>
+
   <section>
     <form>
       <label for="city">Select city or town:</label>
