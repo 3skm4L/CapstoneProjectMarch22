@@ -18,7 +18,8 @@ export default st => html`
     <h3>
       Weather in ${st.weather.city} ${kelvinToFahrenheit(st.weather.temp)}F,
       feels like ${kelvinToFahrenheit(st.weather.feelsLike)}F, humidity is
-      ${st.weather.humidity}
+      ${st.weather.humidity}, wind speed is ${st.weather.wind}, air pressure is
+      ${st.weather.pressure}, cloud cover is ${st.weather.clouds}
     </h3>
   </section>
 

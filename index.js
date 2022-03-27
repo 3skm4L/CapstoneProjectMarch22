@@ -4,9 +4,9 @@ import * as state from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
-import dotenv from "dotenv";
+//import dotenv from "dotenv";
 
-dotenv.config();
+//dotenv.config();
 
 const router = new Navigo("/");
 
@@ -24,12 +24,6 @@ function render(st = state.Home) {
 }
 
 function addEventListeners(st) {
-  document.querySelectorAll("nav a").forEach(navLink =>
-    navLink.addEventListener("click", event => {
-      event.preventDefault();
-      render(state[event.target.title]);
-    })
-  );
   // add menu toggle to bars icon in nav bar
   document
     .querySelector(".fa-bars")
@@ -47,6 +41,8 @@ router.hooks({
     }
 
     if (view === "Home") {
+      console.log(process.env.OPENWEATHERMAPAPI);
+      console.log(process.env.NODE_ENV);
       axios
         .get(
           `https://api.openweathermap.org/data/2.5/weather?appid=068e688392f4c22307c189dfa844dd76&q=st.%20louis`
@@ -58,6 +54,9 @@ router.hooks({
           state.Home.weather.feelsLike = response.data.main.feels_like;
           state.Home.weather.description = response.data.weather[0].main;
           state.Home.weather.humidity = response.data.main.humidity;
+          state.Home.weather.pressure = response.data.main.pressure;
+          state.Home.weather.wind = response.data.wind.speed;
+          state.Home.weather.clouds = response.data.clouds.all;
           done();
         })
         .catch(err => console.log(err));
@@ -76,3 +75,5 @@ router
     }
   })
   .resolve();
+
+//console.log(process.env.NAME);

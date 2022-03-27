@@ -17,7 +17,6 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.3.1",
     "os-browserify": "^0.3.0",
-    "parcel": "^2.4.0",
     "path-browserify": "^1.0.1",
     "prettier": "1.19.1",
     "process": "^0.11.10"
@@ -28,6 +27,7 @@
     "html-literal": "^1.1.0",
     "lodash": "^4.17.21",
     "navigo": "^8.11.1",
+    "parcel": "^2.3.2",
     "yargs-parser": ">=13.1.2"
   }
 }
