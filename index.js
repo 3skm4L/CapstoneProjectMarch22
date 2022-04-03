@@ -4,9 +4,6 @@ import * as state from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
-//import dotenv from "dotenv";
-
-//dotenv.config();
 
 const router = new Navigo("/");
 
@@ -45,7 +42,7 @@ router.hooks({
       console.log(process.env.NODE_ENV);
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?appid=068e688392f4c22307c189dfa844dd76&q=st.%20louis`
+          `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPENWEATHERMAPAPI}&q=st.%20louis`
         )
         .then(response => {
           state.Home.weather = {};
