@@ -9,7 +9,7 @@ const router = new Navigo("/");
 
 function render(st = state.Home) {
   document.querySelector("#root").innerHTML = `
-    ${Header(st)}
+    ${Header()}
     ${Nav(state.Links)}
     ${Main(st)}
     ${Footer()}
@@ -38,8 +38,8 @@ router.hooks({
     }
 
     if (view === "Home") {
-      console.log(process.env.OPENWEATHERMAPAPI);
-      console.log(process.env.NODE_ENV);
+      //console.log(process.env.OPENWEATHERMAPAPI);
+      //console.log(process.env.NODE_ENV);
       axios
         .get(
           `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPENWEATHERMAPAPI}&q=st.%20louis`
@@ -57,6 +57,8 @@ router.hooks({
           done();
         })
         .catch(err => console.log(err));
+    } else {
+      done();
     }
   }
 });
