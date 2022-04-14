@@ -44,7 +44,7 @@ router.hooks({
       const [lat, lon] = params.params.city.split(",");
       console.log('location[0]', 'location[1]');
       const response = await axios.get(
-        `https://history.openweathermap.org/data/2.5/history/city?lat=${lat}&lon=${lon}&type=hour&appid=${process.env.OPENWEATHERMAPAPI}`
+        `https://history.openweathermap.org/data/2.5/history/city?lat=${lat}&lon=${lon}&type=hour&appid=a06d776079658e2dbf85d08865f15762`
       )
         state.Home.table = generateTable(response.data);
     }
