@@ -5,39 +5,25 @@ const kelvinToFahrenheit = kelvinTemp =>
 
 export default st => html`
   <section id="home">
-    <h2>Enter a US location to explore its weather factors:</h2>
-    <form class="form">
-      <label for="state">Select state:</label>
-      <select name="state">
-        <option value="AK">Alaska</option>
-        <!--is there an API to list all states or should it be done manually?-->
-        <option value="AZ">Arizona</option>
-        <option value="AL">Alabama</option>
-      </select>
-    </form>
-    <h3>
-      Weather in ${st.weather.city} ${kelvinToFahrenheit(st.weather.temp)}F,
-      feels like ${kelvinToFahrenheit(st.weather.feelsLike)}F, humidity is
-      ${st.weather.humidity}, wind speed is ${st.weather.wind}, air pressure is
-      ${st.weather.pressure}, cloud cover is ${st.weather.clouds}
-    </h3>
-  </section>
-
-  <section>
-    <form>
+    <h2>Enter a Missouri location to explore its weather factors:</h2>
+    <form id="cityChoice">
       <label for="city">Select city or town:</label>
       <select name="city">
-        <!--I can't possibly list all cities in every state - is there an APi for this?-->
+        <option value="39.099724,-94.578331">Kansas City</option>
+        <option value="38.627003,-90.199402">St Louis</option>
       </select>
+
+     
+      <p><input type="submit" value="show weather data"/></p>
+      
     </form>
-  </section>
-  <section>
-    <h2>Select weather factors to track:</h2>
-    <form class="form">
-      <input type="checkbox" name="barp" value="barometric_presssure" />
-      <label for="barp">Barometric pressure</label>
-      <input type="checkbox" name="temp" value="temperature" />
-      <label for="temp">Temperature</label>
-    </form>
+    ${st.table}
   </section>
 `;
+
+// <!-- <h3>
+//       Weather in ${st.weather.city} ${kelvinToFahrenheit(st.weather.temp)}F,
+//       feels like ${kelvinToFahrenheit(st.weather.feelsLike)}F, humidity is
+//       ${st.weather.humidity}, wind speed is ${st.weather.wind}, air pressure is
+//       ${st.weather.pressure}, cloud cover is ${st.weather.clouds}
+//     </h3> -->
